@@ -1,4 +1,5 @@
 from Heap import Heap
+import sys
 
 class GraphVertex:
     """A class for a vertex of an undirected simple graph"""
@@ -99,15 +100,15 @@ def readGraph(path):
 
     return graph1
 
-def main():
-    #Using this main submodule as a test harness, bad idea?
-    graph = readGraph("Graph4.txt")
-    print(graph)
-    print("Performing Minimum Vertex Cover Approximation...")
-    seenVertex = 1
+def compareVertex(vertex1, vertex2):
+    if(vertex1.current_degree == vertex2.current_degree):
+        return vertex1.key < vertex2.key
+    else:
+        return vertex1.current_degree > vertex2.current_degree
 
+def approxMVC(graph):
     #Priority queue to select the heap with the highest degree
-    vertexHeap = Heap("max", lambda x: x.current_degree)
+    vertexHeap = Heap("max", compareVertex)
 
     #Vertices that have been visted
     vistedList = []
@@ -120,25 +121,29 @@ def main():
         vertex.current_degree = len(vertex.adjList) - 1
         vertexHeap.insert(vertex)
 
-    while not vertexHeap.isEmpty() and seenVertex > 0:
-        print("Current heap = " + vertexHeap.__str__())
+    while not vertexHeap.isEmpty() and vertexHeap.heap[0].current_degree > 0:
         vertex = vertexHeap.extract()
         vistedList.append(vertex)
-
-        seenVertex = vertex.current_degree
-        if (vertex.current_degree > 0):
-            vertexCover.append(vertex)
+        vertexCover.append(vertex)
 
         print("Visiting vertex: " + vertex.key + ", Visisted = {" + ",".join([vertex.key for vertex in vistedList]) + "}")
         for k, adjVertex in vertex.adjList.items():
             if not (adjVertex in vistedList) and adjVertex.current_degree != 0: #If it hasn't been
                 adjVertex.current_degree = adjVertex.current_degree - 1
-                print("     Updating degree of adjacent vertex: " + k + " to " + str(adjVertex.current_degree))
+                print("     Updating degree of vertex " + k + " to " + str(adjVertex.current_degree))
                 vertexHeap.update(vertexHeap.heap.index(adjVertex))
-
         print()
 
     print("VERTEX COVER = " + ",".join([vertex.key for vertex in vertexCover]))
+
+    return vertexCover
+
+
+def main():
+    #Using this main submodule as a test harness, bad idea?
+    graph = readGraph(sys.argv[1])
+    print("Performing Minimum Vertex Cover Approximation...")
+    vertexCover = approxMVC(graph)
 
 
 if __name__ == "__main__":

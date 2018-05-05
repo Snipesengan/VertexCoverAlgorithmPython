@@ -34,11 +34,8 @@ class Heap:
         if(index < 0 or index >= len(self.heap)):
             raise IndexError
 
-        childValue = self.callback(self.heap[index])
-        parentValue = self.callback(self.heap[int(index/2)])
-
-        if (((self.heap_type == "max") and (childValue > parentValue)) or
-            ((self.heap_type == "min") and (childValue < parentValue))):
+        if (((self.heap_type == "max") and self.callback(self.heap[index], self.heap[int(index/2)])) or
+            ((self.heap_type == "min") and self.callback(self.heap[int(index/2)], self.heap[index]))):
                 self._trickleUp(index)
         else:
                 self._trickleDown(index)
@@ -51,32 +48,26 @@ class Heap:
         rightIdx = leftIdx + 1
         swapIdx = index;
         if leftIdx < len(self.heap):
-            if (((self.callback(self.heap[leftIdx]) > self.callback(self.heap[swapIdx])) and self.heap_type == "max") or
-                ((self.callback(self.heap[leftIdx]) < self.callback(self.heap[swapIdx])) and self.heap_type == "min")):
+            if (((self.callback(self.heap[leftIdx] ,self.heap[swapIdx])) and self.heap_type == "max") or
+                ((self.callback(self.heap[swapIdx], self.heap[leftIdx])) and self.heap_type == "min")):
                swapIdx = leftIdx
 
         if rightIdx < len(self.heap):
-            if (((self.callback(self.heap[rightIdx]) > self.callback(self.heap[swapIdx])) and self.heap_type == "max") or
-                ((self.callback(self.heap[rightIdx]) < self.callback(self.heap[swapIdx])) and self.heap_type == "min")):
+            if (((self.callback(self.heap[rightIdx] , self.heap[swapIdx])) and self.heap_type == "max") or
+                ((self.callback(self.heap[swapIdx] , self.heap[rightIdx])) and self.heap_type == "min")):
                swapIdx = rightIdx
 
         if swapIdx != index:
-            a,b = self.heap[swapIdx],self.heap[index]
-            self.heap[swapIdx],self.heap[index] = b,a
+            self.heap[index],self.heap[swapIdx] = self.heap[swapIdx],self.heap[index]
             self._trickleDown(swapIdx)
 
     def _trickleUp(self, index):
 
         if (index >= 0) and (index < len(self.heap)):
-            parentKey = self.callback(self.heap[int(index/2)])
-            childKey = self.callback(self.heap[index])
-            while (index > 0 and (((self.heap_type == "min") and parentKey > childKey) or
-                                  ((self.heap_type == "max") and parentKey < childKey))):
-                a,b = self.heap[int(index/2)],self.heap[index]
-                self.heap[int(index/2)],self.heap[index] = b,a
+            while (index > 0 and (((self.heap_type == "min") and self.callback(self.heap[int(index/2)], self.heap[index])) or
+                                  ((self.heap_type == "max") and self.callback(self.heap[index], self.heap[int(index/2)])))):
+                self.heap[int(index/2)],self.heap[index] = self.heap[index],self.heap[int(index/2)]
                 index = int(index/2)
-                parentKey = self.callback(self.heap[int(index / 2)])
-                childKey = self.callback(self.heap[index])
 
     def __str__(self):
         str = [i.__str__() for i in self.heap]
