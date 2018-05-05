@@ -101,9 +101,10 @@ def readGraph(path):
 
 def main():
     #Using this main submodule as a test harness, bad idea?
-    graph = readGraph("Graph1.txt")
+    graph = readGraph("Graph4.txt")
     print(graph)
     print("Performing Minimum Vertex Cover Approximation...")
+    seenVertex = 1
 
     #Priority queue to select the heap with the highest degree
     vertexHeap = Heap("max", lambda x: x.current_degree)
@@ -119,11 +120,12 @@ def main():
         vertex.current_degree = len(vertex.adjList) - 1
         vertexHeap.insert(vertex)
 
-    while not vertexHeap.isEmpty():
+    while not vertexHeap.isEmpty() and seenVertex > 0:
         print("Current heap = " + vertexHeap.__str__())
         vertex = vertexHeap.extract()
         vistedList.append(vertex)
 
+        seenVertex = vertex.current_degree
         if (vertex.current_degree > 0):
             vertexCover.append(vertex)
 
@@ -137,7 +139,6 @@ def main():
         print()
 
     print("VERTEX COVER = " + ",".join([vertex.key for vertex in vertexCover]))
-
 
 
 if __name__ == "__main__":
