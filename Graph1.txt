@@ -3,5 +3,5 @@ B,A,D,E
 C,A,F
 D,A,B,E,F,G
 E,B,D,G
-F,A,D,G
+F,A,C,D,G
 G,D,E,F

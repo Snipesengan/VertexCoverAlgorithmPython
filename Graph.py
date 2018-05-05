@@ -1,3 +1,5 @@
+from Heap import Heap
+
 class GraphVertex:
     """A class for a vertex of an undirected simple graph"""
 
@@ -103,15 +105,39 @@ def main():
     print(graph)
     print("Performing Minimum Vertex Cover Approximation...")
 
+    #Priority queue to select the heap with the highest degree
+    vertexHeap = Heap("max", lambda x: x.current_degree)
 
-    vertexHeap = {}
+    #Vertices that have been visted
+    vistedList = []
+
+    #Vertex Cover
+    vertexCover = []
+
     #Set the current degree of each vertex, this is what will be used to sort
     for vertex in graph:
         vertex.current_degree = len(vertex.adjList) - 1
-        vertexHeap[vertex.key] = vertex.current_degree
+        vertexHeap.insert(vertex)
 
-    heapq.heapify(vertexHeap)
-    print(vertexHeap)
+    while not vertexHeap.isEmpty():
+        print("Current heap = " + vertexHeap.__str__())
+        vertex = vertexHeap.extract()
+        vistedList.append(vertex)
+
+        if (vertex.current_degree > 0):
+            vertexCover.append(vertex)
+
+        print("Visiting vertex: " + vertex.key + ", Visisted = {" + ",".join([vertex.key for vertex in vistedList]) + "}")
+        for k, adjVertex in vertex.adjList.items():
+            if not (adjVertex in vistedList) and adjVertex.current_degree != 0: #If it hasn't been
+                adjVertex.current_degree = adjVertex.current_degree - 1
+                print("     Updating degree of adjacent vertex: " + k + " to " + str(adjVertex.current_degree))
+                vertexHeap.update(vertexHeap.heap.index(adjVertex))
+
+        print()
+
+    print("VERTEX COVER = " + ",".join([vertex.key for vertex in vertexCover]))
+
 
 
 if __name__ == "__main__":
