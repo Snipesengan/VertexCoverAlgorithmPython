@@ -1,4 +1,6 @@
 from Heap import Heap
+from GenericCSVReader import readCSVFile
+import math
 import sys
 
 class GraphVertex:
@@ -7,21 +9,23 @@ class GraphVertex:
     def __init__(self, key):
         self.key = key; #Key is the name given to the vertex
         self.adjList = {} #Adjacency list of the vertex
-        self.adjList[key] = self
+        self.adjList[key] = {'k':self, 'weight':0}
 
-    def add_adjacent(self, vertex):
+    def add_adjacent(self, vertex, weight=0):
         if type(vertex) is GraphVertex:
             if vertex.key in self.adjList:
                 print("ERROR! " +  vertex.key + " already exist in adj-list of " +
                        self.key + ". It was not added")
             else:
-                self.adjList[vertex.key] = vertex
+                self.adjList[vertex.key] = {'k': vertex, 'weight': weight}
+
         else:
             raise TypeError
 
     #Operator Overloading
     def __str__(self):
-        return self.key + "|" + "-".join(self.adjList.keys())
+        str_list = [str(k) + "(" + str(v['weight']) + ")" for k,v in self.adjList.items()]
+        return self.key + "|" + "-".join(str_list)
 
 
 class Graph:
@@ -39,6 +43,8 @@ class Graph:
                 self.vertexList[vertex.key] = vertex
         else:
             raise TypeError
+
+
 
     #Operator Overloading
     #__str__
@@ -70,7 +76,8 @@ class Graph:
 
         return self.vertexList[self._iterList[self._iterCount - 1]]
 
-def readGraph(path):
+#function read in a graph using adjacentcy matrix
+def readGraph1(path):
     graph1 = Graph()
 
     f = open(path, 'r')
@@ -100,13 +107,78 @@ def readGraph(path):
 
     return graph1
 
-def compareVertex(vertex1, vertex2):
-    if(vertex1.current_degree == vertex2.current_degree):
-        return vertex1.key < vertex2.key
-    else:
-        return vertex1.current_degree > vertex2.current_degree
+
+#This function reads a graph using adj-matrix format
+def readGraph2(path):
+    vertex_key = []
+    graph = Graph()
+    data = readCSVFile(path)
+
+    for k, v in data[0].items():
+        vertex = GraphVertex(k)
+        graph.add_vertex(vertex)
+        vertex_key.append(k)
+
+    for i, line in enumerate(data):
+        if i < len(data) - 1:
+            for k, v in line.items():
+                if str(v) != '_':
+                    graph.vertexList[vertex_key[i]].add_adjacent(graph.vertexList[k], int(v))
+
+    return graph
+
+def dijkstra(graph, source, sink):
+    if not(source in graph and sink in graph):
+        raise ValueError('source and/or sink does not exist in graph')
+
+    def compareVertex(vertex1, vertex2):
+        if(vertex1.dist == vertex2.dist):
+            return vertex1.key < vertex2.key
+        else:
+            return vertex1.dist > vertex2.dist
+
+    path = []
+    unvisitedQ = Heap("min", compareVertex)
+
+    print("Performing Djikstra...")
+    for vertex in graph:
+        vertex.dist = math.inf
+        vertex.prev = None
+        unvisitedQ.insert(vertex)
+
+    source.dist = 0
+    unvisitedQ.update(unvisitedQ.heap.index(source))
+
+    while not unvisitedQ.isEmpty():
+        u = unvisitedQ.extract()
+
+        print("Visiting vertex " + u.key)
+        for k, adjVertex in u.adjList.items():
+            alt = u.dist + adjVertex['weight']
+
+            print("     Considering vertex " + k)
+            if alt < adjVertex['k'].dist:
+                adjVertex['k'].dist = alt
+                adjVertex['k'].prev = u
+                print("             Updating tentative distance to " + str(alt))
+                unvisitedQ.update(unvisitedQ.heap.index(adjVertex['k']))
+
+    vertex = sink
+    while vertex != source:
+        path.insert(0, (vertex, vertex.dist))
+        vertex = vertex.prev
+    path.insert(0, (source, source.dist))
+
+    return path
 
 def approxMVC(graph):
+
+    def compareVertex(vertex1, vertex2):
+        if(vertex1.current_degree == vertex2.current_degree):
+            return vertex1.key < vertex2.key
+        else:
+            return vertex1.current_degree > vertex2.current_degree
+
     #Priority queue to select the heap with the highest degree
     vertexHeap = Heap("max", compareVertex)
 
@@ -126,24 +198,28 @@ def approxMVC(graph):
         vistedList.append(vertex)
         vertexCover.append(vertex)
 
-        print("Visiting vertex: " + vertex.key + ", Visisted = {" + ",".join([vertex.key for vertex in vistedList]) + "}")
+        print("Visiting vertex: " + vertex.__str__() + ", Visisted = {" + ",".join([vertex.key for vertex in vistedList]) + "}")
         for k, adjVertex in vertex.adjList.items():
-            if not (adjVertex in vistedList) and adjVertex.current_degree != 0: #If it hasn't been
-                adjVertex.current_degree = adjVertex.current_degree - 1
-                print("     Updating degree of vertex " + k + " to " + str(adjVertex.current_degree))
-                vertexHeap.update(vertexHeap.heap.index(adjVertex))
+            if not (adjVertex['k'] in vistedList) and adjVertex['k'].current_degree != 0: #If it hasn't been
+                adjVertex['k'].current_degree = adjVertex['k'].current_degree - 1
+                print("     Updating degree of vertex " + k + " to " + str(adjVertex['k'].current_degree))
+                vertexHeap.update(vertexHeap.heap.index(adjVertex['k']))
         print()
 
     print("VERTEX COVER = " + ",".join([vertex.key for vertex in vertexCover]))
 
-    return vertexCover
+    return set(vertexCover)
 
 
 def main():
     #Using this main submodule as a test harness, bad idea?
-    graph = readGraph(sys.argv[1])
-    print("Performing Minimum Vertex Cover Approximation...")
-    vertexCover = approxMVC(graph)
+    #graph = readGraph1(sys.argv[1])
+    #print("Performing Minimum Vertex Cover Approximation...")
+    graph = readGraph2(sys.argv[1])
+    source = graph.vertexList['A']
+    sink = graph.vertexList['G']
+    path = dijkstra(graph,source,sink)
+    print("\n" + '->'.join(["(" + str(vertex[0].key) + "," + str(vertex[1]) + ")" for vertex in path]))
 
 
 if __name__ == "__main__":
