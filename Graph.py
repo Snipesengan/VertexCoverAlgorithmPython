@@ -44,8 +44,6 @@ class Graph:
         else:
             raise TypeError
 
-
-
     #Operator Overloading
     #__str__
     def __str__(self):
@@ -165,11 +163,38 @@ def dijkstra(graph, source, sink):
 
     vertex = sink
     while vertex != source:
-        path.insert(0, (vertex, vertex.dist))
+        path.insert(0, vertex)
         vertex = vertex.prev
-    path.insert(0, (source, source.dist))
+    path.insert(0, source)
 
-    return path
+    return path, sink.dist
+
+def yenKSP(graph, source, sink, K):
+    #A is a list containing the shortest path A[0] to A[K -1]
+    A = []
+    #B is a list containing potential k'th shortest path
+    B = []
+
+    # Determine the shortest path from source to sink
+    A.append(dijkstra(graph,source,sink))
+
+    for k in range(1, K):
+        # The spur node ranges from the first node to the next to last last node in the previous k-shortest path
+        for i in range(len(A[k - 1][0]) - 1):
+
+            #spur node is retrieved from the previous k-shortest path, k - 1
+            spurNode = A[k-1][0][i]
+
+            # The sequence of nodes from the source to the spur node of the previous k-shortest path
+            rootPath = A[k-1][0][0:i]
+
+            for path in A:
+                if rootPath == path[0][0:i]:
+                    # Remove the links that are part of the previous shortest paths which share the same root path.
+                    graph.removeEdge(path[0][i],path[0][i+1])
+                    del
+
+
 
 def approxMVC(graph):
 
@@ -216,10 +241,11 @@ def main():
     #graph = readGraph1(sys.argv[1])
     #print("Performing Minimum Vertex Cover Approximation...")
     graph = readGraph2(sys.argv[1])
-    source = graph.vertexList['A']
-    sink = graph.vertexList['G']
-    path = dijkstra(graph,source,sink)
-    print("\n" + '->'.join(["(" + str(vertex[0].key) + "," + str(vertex[1]) + ")" for vertex in path]))
+    source = graph.vertexList['C']
+    sink = graph.vertexList['E']
+    path, cost = dijkstra(graph,source,sink)
+    print("\n" + '->'.join([str(vertex.key) for vertex in path]))
+    print("Cost = " + str(cost))
 
 
 if __name__ == "__main__":
