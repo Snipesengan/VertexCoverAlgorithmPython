@@ -40,6 +40,10 @@ class Heap:
         else:
                 self._trickleDown(index)
 
+    def clear(self):
+        while len(self.heap) > 0:
+            self.extract()
+
     def isEmpty(self):
         return len(self.heap) == 0
 
