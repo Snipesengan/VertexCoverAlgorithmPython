@@ -193,7 +193,6 @@ def yenKSP(graph, source, sink, K):
             #spur node is retrieved from the previous k-shortest path, k - 1
             spurNode = A[k-1][i]
 
-            print("     Heap: " + ','.join([str(calcPathCost(path)) for path in B.heap]))
             print("     Spur Node: " + spurNode.key)
 
             # The sequence of nodes from the source to the spur node of the previous k-shortest path
@@ -214,14 +213,13 @@ def yenKSP(graph, source, sink, K):
             #Calculate the spur path from the spur node to the sink
             spurPath = dijkstra(graph, spurNode, sink)
             if(spurPath != None):
-                spurPath = spurPath[1:]
                 print("     Spur path: " + '->'.join([node.key for node in spurPath]) + ", cost = " + str(calcPathCost(spurPath)))
+                spurPath = spurPath[1:]
                 totalPath = rootPath + spurPath
                 print("     Total path: " + '->'.join([node.key for node in totalPath]) + ", cost = " + str(calcPathCost(totalPath)))
                 if not totalPath in B.heap:
                     print("     Inserting Total Path to heap")
                     B.insert(totalPath)
-                    print("     Heap: " + ','.join([str(calcPathCost(path)) for path in B.heap]))
                 else:
                     print("     Path already exists")
             else:
@@ -260,7 +258,7 @@ def main():
     source = graph.vertexList['C']
     sink = graph.vertexList['E']
 
-    A = yenKSP(graph, source, sink,40) #Find 3 shortest path from C to E
+    A = yenKSP(graph, source, sink,4) #Find 3 shortest path from C to E
     for i, path in enumerate(A):
         cost = calcPathCost(path)
         if path != None:
