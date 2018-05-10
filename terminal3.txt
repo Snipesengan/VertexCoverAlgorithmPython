@@ -1,0 +1,2153 @@
+k: 0
+     Shortest path: C->F->D->E, cost = 6
+k: 1
+     Heap: 
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+     Spur path: A->B->E, cost = 4
+     Total path: C->A->B->E, cost = 13
+     Inserting Total Path to heap
+
+     Heap: 13
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+     Spur path: G->E, cost = 4
+     Total path: C->F->G->E, cost = 12
+     Inserting Total Path to heap
+
+     Heap: 12,13
+     Spur Node: D
+     Root path: C->F->D, cost = 1
+         Removing edge: D->E
+     Spur path: B->E, cost = 3
+     Total path: C->F->D->B->E, cost = 8
+     Inserting Total Path to heap
+
+     Shortest path: C->F->D->B->E, cost = 8
+k: 2
+     Heap: 12,13
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+     Spur path: A->B->E, cost = 4
+     Total path: C->A->B->E, cost = 13
+
+     Heap: 12,13
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+     Spur path: G->E, cost = 4
+     Total path: C->F->G->E, cost = 12
+
+     Heap: 12,13
+     Spur Node: D
+     Root path: C->F->D, cost = 1
+         Removing edge: D->E
+         Removing edge: D->B
+     Spur path: G->E, cost = 4
+     Total path: C->F->D->G->E, cost = 13
+     Inserting Total Path to heap
+
+     Heap: 12,13,13
+     Spur Node: B
+     Root path: C->F->D->B, cost = 5
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->F->G->E, cost = 12
+k: 3
+     Heap: 13,13
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+     Spur path: A->B->E, cost = 4
+     Total path: C->A->B->E, cost = 13
+
+     Heap: 13,13
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+     Spur path: A->B->E, cost = 4
+     Total path: C->F->A->B->E, cost = 12
+     Inserting Total Path to heap
+
+     Heap: 12,13,13
+     Spur Node: G
+     Root path: C->F->G, cost = 8
+         Removing edge: G->E
+     Spur path: D->E, cost = 5
+     Total path: C->F->G->D->E, cost = 21
+     Inserting Total Path to heap
+
+     Shortest path: C->F->A->B->E, cost = 12
+k: 4
+     Heap: 13,21,13
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+     Spur path: A->B->E, cost = 4
+     Total path: C->A->B->E, cost = 13
+
+     Heap: 13,21,13
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 13,21,13
+     Spur Node: A
+     Root path: C->F->A, cost = 8
+         Removing edge: A->B
+     Spur path: D->E, cost = 5
+     Total path: C->F->A->D->E, cost = 21
+     Inserting Total Path to heap
+
+     Heap: 13,21,13,21
+     Spur Node: B
+     Root path: C->F->A->B, cost = 9
+         Removing edge: B->E
+     Spur path: D->E, cost = 5
+     Total path: C->F->A->B->D->E, cost = 18
+     Inserting Total Path to heap
+
+     Shortest path: C->F->D->G->E, cost = 13
+k: 5
+     Heap: 13,21,18,21
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+     Spur path: A->B->E, cost = 4
+     Total path: C->A->B->E, cost = 13
+
+     Heap: 13,21,18,21
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 13,21,18,21
+     Spur Node: D
+     Root path: C->F->D, cost = 1
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->G
+     Spur path: A->B->E, cost = 4
+     Total path: C->F->D->A->B->E, cost = 13
+     Inserting Total Path to heap
+
+     Heap: 13,13,21,21,18
+     Spur Node: G
+     Root path: C->F->D->G, cost = 9
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->B->E, cost = 13
+k: 6
+     Heap: 13,18,21,21
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 13,18,21,21
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+     Spur path: D->E, cost = 5
+     Total path: C->A->D->E, cost = 22
+     Inserting Total Path to heap
+
+     Heap: 13,18,21,21,22
+     Spur Node: B
+     Root path: C->A->B, cost = 10
+         Removing edge: B->E
+     Spur path: D->E, cost = 5
+     Total path: C->A->B->D->E, cost = 19
+     Inserting Total Path to heap
+
+     Shortest path: C->F->D->A->B->E, cost = 13
+k: 7
+     Heap: 18,21,19,21,22
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 18,21,19,21,22
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 18,21,19,21,22
+     Spur Node: D
+     Root path: C->F->D, cost = 1
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->G
+         Removing edge: D->A
+     No Spur path found
+
+     Heap: 18,21,19,21,22
+     Spur Node: A
+     Root path: C->F->D->A, cost = 9
+         Removing edge: A->B
+     No Spur path found
+
+     Heap: 18,21,19,21,22
+     Spur Node: B
+     Root path: C->F->D->A->B, cost = 10
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->F->A->B->D->E, cost = 18
+k: 8
+     Heap: 19,21,22,21
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 19,21,22,21
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 19,21,22,21
+     Spur Node: A
+     Root path: C->F->A, cost = 8
+         Removing edge: A->B
+     Spur path: D->E, cost = 5
+     Total path: C->F->A->D->E, cost = 21
+
+     Heap: 19,21,22,21
+     Spur Node: B
+     Root path: C->F->A->B, cost = 9
+         Removing edge: B->E
+         Removing edge: B->D
+     No Spur path found
+
+     Heap: 19,21,22,21
+     Spur Node: D
+     Root path: C->F->A->B->D, cost = 13
+         Removing edge: D->E
+     Spur path: G->E, cost = 4
+     Total path: C->F->A->B->D->G->E, cost = 25
+     Inserting Total Path to heap
+
+     Shortest path: C->A->B->D->E, cost = 19
+k: 9
+     Heap: 21,21,22,25
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 21,21,22,25
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+     Spur path: D->E, cost = 5
+     Total path: C->A->D->E, cost = 22
+
+     Heap: 21,21,22,25
+     Spur Node: B
+     Root path: C->A->B, cost = 10
+         Removing edge: B->E
+         Removing edge: B->D
+     No Spur path found
+
+     Heap: 21,21,22,25
+     Spur Node: D
+     Root path: C->A->B->D, cost = 14
+         Removing edge: D->E
+     Spur path: G->E, cost = 4
+     Total path: C->A->B->D->G->E, cost = 26
+     Inserting Total Path to heap
+
+     Shortest path: C->F->G->D->E, cost = 21
+k: 10
+     Heap: 21,25,22,26
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 21,25,22,26
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 21,25,22,26
+     Spur Node: G
+     Root path: C->F->G, cost = 8
+         Removing edge: G->E
+         Removing edge: G->D
+     No Spur path found
+
+     Heap: 21,25,22,26
+     Spur Node: D
+     Root path: C->F->G->D, cost = 16
+         Removing edge: D->E
+     Spur path: B->E, cost = 3
+     Total path: C->F->G->D->B->E, cost = 23
+     Inserting Total Path to heap
+
+     Shortest path: C->F->A->D->E, cost = 21
+k: 11
+     Heap: 22,25,23,26
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 22,25,23,26
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 22,25,23,26
+     Spur Node: A
+     Root path: C->F->A, cost = 8
+         Removing edge: A->B
+         Removing edge: A->D
+     No Spur path found
+
+     Heap: 22,25,23,26
+     Spur Node: D
+     Root path: C->F->A->D, cost = 16
+         Removing edge: D->E
+     Spur path: B->E, cost = 3
+     Total path: C->F->A->D->B->E, cost = 23
+     Inserting Total Path to heap
+
+     Shortest path: C->A->D->E, cost = 22
+k: 12
+     Heap: 23,25,23,26
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 23,25,23,26
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+     Spur path: F->D->E, cost = 6
+     Total path: C->A->F->D->E, cost = 23
+     Inserting Total Path to heap
+
+     Heap: 23,25,23,26,23
+     Spur Node: D
+     Root path: C->A->D, cost = 17
+         Removing edge: D->E
+     Spur path: B->E, cost = 3
+     Total path: C->A->D->B->E, cost = 24
+     Inserting Total Path to heap
+
+     Shortest path: C->F->A->D->B->E, cost = 23
+k: 13
+     Heap: 23,25,24,26,23
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 23,25,24,26,23
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 23,25,24,26,23
+     Spur Node: A
+     Root path: C->F->A, cost = 8
+         Removing edge: A->B
+         Removing edge: A->D
+     No Spur path found
+
+     Heap: 23,25,24,26,23
+     Spur Node: D
+     Root path: C->F->A->D, cost = 16
+         Removing edge: D->E
+         Removing edge: D->B
+     Spur path: G->E, cost = 4
+     Total path: C->F->A->D->G->E, cost = 28
+     Inserting Total Path to heap
+
+     Heap: 23,25,24,26,23,28
+     Spur Node: B
+     Root path: C->F->A->D->B, cost = 20
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->F->G->D->B->E, cost = 23
+k: 14
+     Heap: 24,25,28,26,23
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 24,25,28,26,23
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 24,25,28,26,23
+     Spur Node: G
+     Root path: C->F->G, cost = 8
+         Removing edge: G->E
+         Removing edge: G->D
+     No Spur path found
+
+     Heap: 24,25,28,26,23
+     Spur Node: D
+     Root path: C->F->G->D, cost = 16
+         Removing edge: D->E
+         Removing edge: D->B
+     Spur path: A->B->E, cost = 4
+     Total path: C->F->G->D->A->B->E, cost = 28
+     Inserting Total Path to heap
+
+     Heap: 24,25,28,26,23,28
+     Spur Node: B
+     Root path: C->F->G->D->B, cost = 20
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->A->D->B->E, cost = 24
+k: 15
+     Heap: 25,23,28,26,28
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 25,23,28,26,28
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+     Spur path: F->D->E, cost = 6
+     Total path: C->A->F->D->E, cost = 23
+
+     Heap: 25,23,28,26,28
+     Spur Node: D
+     Root path: C->A->D, cost = 17
+         Removing edge: D->E
+         Removing edge: D->B
+     Spur path: G->E, cost = 4
+     Total path: C->A->D->G->E, cost = 29
+     Inserting Total Path to heap
+
+     Heap: 25,23,28,26,28,29
+     Spur Node: B
+     Root path: C->A->D->B, cost = 21
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->F->A->B->D->G->E, cost = 25
+k: 16
+     Heap: 23,26,28,29,28
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 23,26,28,29,28
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 23,26,28,29,28
+     Spur Node: A
+     Root path: C->F->A, cost = 8
+         Removing edge: A->B
+         Removing edge: A->D
+     No Spur path found
+
+     Heap: 23,26,28,29,28
+     Spur Node: B
+     Root path: C->F->A->B, cost = 9
+         Removing edge: B->E
+         Removing edge: B->D
+     No Spur path found
+
+     Heap: 23,26,28,29,28
+     Spur Node: D
+     Root path: C->F->A->B->D, cost = 13
+         Removing edge: D->E
+         Removing edge: D->G
+     No Spur path found
+
+     Heap: 23,26,28,29,28
+     Spur Node: G
+     Root path: C->F->A->B->D->G, cost = 21
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->F->D->E, cost = 23
+k: 17
+     Heap: 26,28,28,29
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 26,28,28,29
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 26,28,28,29
+     Spur Node: F
+     Root path: C->A->F, cost = 17
+         Removing edge: F->D
+     Spur path: G->E, cost = 4
+     Total path: C->A->F->G->E, cost = 29
+     Inserting Total Path to heap
+
+     Heap: 26,28,28,29,29
+     Spur Node: D
+     Root path: C->A->F->D, cost = 18
+         Removing edge: D->E
+     Spur path: B->E, cost = 3
+     Total path: C->A->F->D->B->E, cost = 25
+     Inserting Total Path to heap
+
+     Shortest path: C->A->F->D->B->E, cost = 25
+k: 18
+     Heap: 26,28,28,29,29
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 26,28,28,29,29
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 26,28,28,29,29
+     Spur Node: F
+     Root path: C->A->F, cost = 17
+         Removing edge: F->D
+     Spur path: G->E, cost = 4
+     Total path: C->A->F->G->E, cost = 29
+
+     Heap: 26,28,28,29,29
+     Spur Node: D
+     Root path: C->A->F->D, cost = 18
+         Removing edge: D->E
+         Removing edge: D->B
+     Spur path: G->E, cost = 4
+     Total path: C->A->F->D->G->E, cost = 30
+     Inserting Total Path to heap
+
+     Heap: 26,28,28,29,29,30
+     Spur Node: B
+     Root path: C->A->F->D->B, cost = 22
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->A->B->D->G->E, cost = 26
+k: 19
+     Heap: 28,29,28,30,29
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 28,29,28,30,29
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 28,29,28,30,29
+     Spur Node: B
+     Root path: C->A->B, cost = 10
+         Removing edge: B->E
+         Removing edge: B->D
+     No Spur path found
+
+     Heap: 28,29,28,30,29
+     Spur Node: D
+     Root path: C->A->B->D, cost = 14
+         Removing edge: D->E
+         Removing edge: D->G
+     Spur path: F->G->E, cost = 12
+     Total path: C->A->B->D->F->G->E, cost = 27
+     Inserting Total Path to heap
+
+     Heap: 27,28,29,30,29,28
+     Spur Node: G
+     Root path: C->A->B->D->G, cost = 22
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->B->D->F->G->E, cost = 27
+k: 20
+     Heap: 28,28,29,30,29
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 28,28,29,30,29
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 28,28,29,30,29
+     Spur Node: B
+     Root path: C->A->B, cost = 10
+         Removing edge: B->E
+         Removing edge: B->D
+     No Spur path found
+
+     Heap: 28,28,29,30,29
+     Spur Node: D
+     Root path: C->A->B->D, cost = 14
+         Removing edge: D->E
+         Removing edge: D->G
+         Removing edge: D->F
+     No Spur path found
+
+     Heap: 28,28,29,30,29
+     Spur Node: F
+     Root path: C->A->B->D->F, cost = 15
+         Removing edge: F->G
+     No Spur path found
+
+     Heap: 28,28,29,30,29
+     Spur Node: G
+     Root path: C->A->B->D->F->G, cost = 23
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->F->G->D->A->B->E, cost = 28
+k: 21
+     Heap: 28,29,29,30
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 28,29,29,30
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 28,29,29,30
+     Spur Node: G
+     Root path: C->F->G, cost = 8
+         Removing edge: G->E
+         Removing edge: G->D
+     No Spur path found
+
+     Heap: 28,29,29,30
+     Spur Node: D
+     Root path: C->F->G->D, cost = 16
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->A
+     No Spur path found
+
+     Heap: 28,29,29,30
+     Spur Node: A
+     Root path: C->F->G->D->A, cost = 24
+         Removing edge: A->B
+     No Spur path found
+
+     Heap: 28,29,29,30
+     Spur Node: B
+     Root path: C->F->G->D->A->B, cost = 25
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->F->A->D->G->E, cost = 28
+k: 22
+     Heap: 29,30,29
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 29,30,29
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 29,30,29
+     Spur Node: A
+     Root path: C->F->A, cost = 8
+         Removing edge: A->B
+         Removing edge: A->D
+     No Spur path found
+
+     Heap: 29,30,29
+     Spur Node: D
+     Root path: C->F->A->D, cost = 16
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->G
+     No Spur path found
+
+     Heap: 29,30,29
+     Spur Node: G
+     Root path: C->F->A->D->G, cost = 24
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->F->G->E, cost = 29
+k: 23
+     Heap: 29,30
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 29,30
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 29,30
+     Spur Node: F
+     Root path: C->A->F, cost = 17
+         Removing edge: F->D
+         Removing edge: F->G
+     No Spur path found
+
+     Heap: 29,30
+     Spur Node: G
+     Root path: C->A->F->G, cost = 25
+         Removing edge: G->E
+     Spur path: D->E, cost = 5
+     Total path: C->A->F->G->D->E, cost = 38
+     Inserting Total Path to heap
+
+     Shortest path: C->A->D->G->E, cost = 29
+k: 24
+     Heap: 30,38
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 30,38
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 30,38
+     Spur Node: D
+     Root path: C->A->D, cost = 17
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->G
+     Spur path: F->G->E, cost = 12
+     Total path: C->A->D->F->G->E, cost = 30
+     Inserting Total Path to heap
+
+     Heap: 30,30,38
+     Spur Node: G
+     Root path: C->A->D->G, cost = 25
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->F->D->G->E, cost = 30
+k: 25
+     Heap: 30,38
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 30,38
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 30,38
+     Spur Node: F
+     Root path: C->A->F, cost = 17
+         Removing edge: F->D
+         Removing edge: F->G
+     No Spur path found
+
+     Heap: 30,38
+     Spur Node: D
+     Root path: C->A->F->D, cost = 18
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->G
+     No Spur path found
+
+     Heap: 30,38
+     Spur Node: G
+     Root path: C->A->F->D->G, cost = 26
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->D->F->G->E, cost = 30
+k: 26
+     Heap: 38
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 38
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 38
+     Spur Node: D
+     Root path: C->A->D, cost = 17
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->G
+         Removing edge: D->F
+     No Spur path found
+
+     Heap: 38
+     Spur Node: F
+     Root path: C->A->D->F, cost = 18
+         Removing edge: F->G
+     No Spur path found
+
+     Heap: 38
+     Spur Node: G
+     Root path: C->A->D->F->G, cost = 26
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->F->G->D->E, cost = 38
+k: 27
+     Heap: 
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 
+     Spur Node: F
+     Root path: C->A->F, cost = 17
+         Removing edge: F->D
+         Removing edge: F->G
+     No Spur path found
+
+     Heap: 
+     Spur Node: G
+     Root path: C->A->F->G, cost = 25
+         Removing edge: G->E
+         Removing edge: G->D
+     No Spur path found
+
+     Heap: 
+     Spur Node: D
+     Root path: C->A->F->G->D, cost = 33
+         Removing edge: D->E
+     Spur path: B->E, cost = 3
+     Total path: C->A->F->G->D->B->E, cost = 40
+     Inserting Total Path to heap
+
+     Shortest path: C->A->F->G->D->B->E, cost = 40
+k: 28
+     Heap: 
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 
+     Spur Node: F
+     Root path: C->A->F, cost = 17
+         Removing edge: F->D
+         Removing edge: F->G
+     No Spur path found
+
+     Heap: 
+     Spur Node: G
+     Root path: C->A->F->G, cost = 25
+         Removing edge: G->E
+         Removing edge: G->D
+     No Spur path found
+
+     Heap: 
+     Spur Node: D
+     Root path: C->A->F->G->D, cost = 33
+         Removing edge: D->E
+         Removing edge: D->B
+     No Spur path found
+
+     Heap: 
+     Spur Node: B
+     Root path: C->A->F->G->D->B, cost = 37
+         Removing edge: B->E
+     No Spur path found
+
+
+1. C->F->D->E
+Cost = 6
+
+2. C->F->D->B->E
+Cost = 8
+
+3. C->F->G->E
+Cost = 12
+
+4. C->F->A->B->E
+Cost = 12
+
+5. C->F->D->G->E
+Cost = 13
+
+6. C->A->B->E
+Cost = 13
+
+7. C->F->D->A->B->E
+Cost = 13
+
+8. C->F->A->B->D->E
+Cost = 18
+
+9. C->A->B->D->E
+Cost = 19
+
+10. C->F->G->D->E
+Cost = 21
+
+11. C->F->A->D->E
+Cost = 21
+
+12. C->A->D->E
+Cost = 22
+
+13. C->F->A->D->B->E
+Cost = 23
+
+14. C->F->G->D->B->E
+Cost = 23
+
+15. C->A->D->B->E
+Cost = 24
+
+16. C->F->A->B->D->G->E
+Cost = 25
+
+17. C->A->F->D->E
+Cost = 23
+
+18. C->A->F->D->B->E
+Cost = 25
+
+19. C->A->B->D->G->E
+Cost = 26
+
+20. C->A->B->D->F->G->E
+Cost = 27
+
+21. C->F->G->D->A->B->E
+Cost = 28
+
+22. C->F->A->D->G->E
+Cost = 28
+
+23. C->A->F->G->E
+Cost = 29
+
+24. C->A->D->G->E
+Cost = 29
+
+25. C->A->F->D->G->E
+Cost = 30
+
+26. C->A->D->F->G->E
+Cost = 30
+
+27. C->A->F->G->D->E
+Cost = 38
+
+28. C->A->F->G->D->B->E
+Cost = 40
+k: 0
+     Shortest path: C->F->D->E, cost = 6
+k: 1
+     Heap: 
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+     Spur path: A->B->E, cost = 4
+     Total path: C->A->B->E, cost = 13
+     Inserting Total Path to heap
+
+     Heap: 13
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+     Spur path: G->E, cost = 4
+     Total path: C->F->G->E, cost = 12
+     Inserting Total Path to heap
+
+     Heap: 12,13
+     Spur Node: D
+     Root path: C->F->D, cost = 1
+         Removing edge: D->E
+     Spur path: B->E, cost = 3
+     Total path: C->F->D->B->E, cost = 8
+     Inserting Total Path to heap
+
+     Shortest path: C->F->D->B->E, cost = 8
+k: 2
+     Heap: 12,13
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+     Spur path: A->B->E, cost = 4
+     Total path: C->A->B->E, cost = 13
+     Path already exists
+
+     Heap: 12,13
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+     Spur path: G->E, cost = 4
+     Total path: C->F->G->E, cost = 12
+     Path already exists
+
+     Heap: 12,13
+     Spur Node: D
+     Root path: C->F->D, cost = 1
+         Removing edge: D->E
+         Removing edge: D->B
+     Spur path: G->E, cost = 4
+     Total path: C->F->D->G->E, cost = 13
+     Inserting Total Path to heap
+
+     Heap: 12,13,13
+     Spur Node: B
+     Root path: C->F->D->B, cost = 5
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->F->G->E, cost = 12
+k: 3
+     Heap: 13,13
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+     Spur path: A->B->E, cost = 4
+     Total path: C->A->B->E, cost = 13
+     Path already exists
+
+     Heap: 13,13
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+     Spur path: A->B->E, cost = 4
+     Total path: C->F->A->B->E, cost = 12
+     Inserting Total Path to heap
+
+     Heap: 12,13,13
+     Spur Node: G
+     Root path: C->F->G, cost = 8
+         Removing edge: G->E
+     Spur path: D->E, cost = 5
+     Total path: C->F->G->D->E, cost = 21
+     Inserting Total Path to heap
+
+     Shortest path: C->F->A->B->E, cost = 12
+k: 4
+     Heap: 13,21,13
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+     Spur path: A->B->E, cost = 4
+     Total path: C->A->B->E, cost = 13
+     Path already exists
+
+     Heap: 13,21,13
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 13,21,13
+     Spur Node: A
+     Root path: C->F->A, cost = 8
+         Removing edge: A->B
+     Spur path: D->E, cost = 5
+     Total path: C->F->A->D->E, cost = 21
+     Inserting Total Path to heap
+
+     Heap: 13,21,13,21
+     Spur Node: B
+     Root path: C->F->A->B, cost = 9
+         Removing edge: B->E
+     Spur path: D->E, cost = 5
+     Total path: C->F->A->B->D->E, cost = 18
+     Inserting Total Path to heap
+
+     Shortest path: C->F->D->G->E, cost = 13
+k: 5
+     Heap: 13,21,18,21
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+     Spur path: A->B->E, cost = 4
+     Total path: C->A->B->E, cost = 13
+     Path already exists
+
+     Heap: 13,21,18,21
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 13,21,18,21
+     Spur Node: D
+     Root path: C->F->D, cost = 1
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->G
+     Spur path: A->B->E, cost = 4
+     Total path: C->F->D->A->B->E, cost = 13
+     Inserting Total Path to heap
+
+     Heap: 13,13,21,21,18
+     Spur Node: G
+     Root path: C->F->D->G, cost = 9
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->B->E, cost = 13
+k: 6
+     Heap: 13,18,21,21
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 13,18,21,21
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+     Spur path: D->E, cost = 5
+     Total path: C->A->D->E, cost = 22
+     Inserting Total Path to heap
+
+     Heap: 13,18,21,21,22
+     Spur Node: B
+     Root path: C->A->B, cost = 10
+         Removing edge: B->E
+     Spur path: D->E, cost = 5
+     Total path: C->A->B->D->E, cost = 19
+     Inserting Total Path to heap
+
+     Shortest path: C->F->D->A->B->E, cost = 13
+k: 7
+     Heap: 18,21,19,21,22
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 18,21,19,21,22
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 18,21,19,21,22
+     Spur Node: D
+     Root path: C->F->D, cost = 1
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->G
+         Removing edge: D->A
+     No Spur path found
+
+     Heap: 18,21,19,21,22
+     Spur Node: A
+     Root path: C->F->D->A, cost = 9
+         Removing edge: A->B
+     No Spur path found
+
+     Heap: 18,21,19,21,22
+     Spur Node: B
+     Root path: C->F->D->A->B, cost = 10
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->F->A->B->D->E, cost = 18
+k: 8
+     Heap: 19,21,22,21
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 19,21,22,21
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 19,21,22,21
+     Spur Node: A
+     Root path: C->F->A, cost = 8
+         Removing edge: A->B
+     Spur path: D->E, cost = 5
+     Total path: C->F->A->D->E, cost = 21
+     Path already exists
+
+     Heap: 19,21,22,21
+     Spur Node: B
+     Root path: C->F->A->B, cost = 9
+         Removing edge: B->E
+         Removing edge: B->D
+     No Spur path found
+
+     Heap: 19,21,22,21
+     Spur Node: D
+     Root path: C->F->A->B->D, cost = 13
+         Removing edge: D->E
+     Spur path: G->E, cost = 4
+     Total path: C->F->A->B->D->G->E, cost = 25
+     Inserting Total Path to heap
+
+     Shortest path: C->A->B->D->E, cost = 19
+k: 9
+     Heap: 21,21,22,25
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 21,21,22,25
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+     Spur path: D->E, cost = 5
+     Total path: C->A->D->E, cost = 22
+     Path already exists
+
+     Heap: 21,21,22,25
+     Spur Node: B
+     Root path: C->A->B, cost = 10
+         Removing edge: B->E
+         Removing edge: B->D
+     No Spur path found
+
+     Heap: 21,21,22,25
+     Spur Node: D
+     Root path: C->A->B->D, cost = 14
+         Removing edge: D->E
+     Spur path: G->E, cost = 4
+     Total path: C->A->B->D->G->E, cost = 26
+     Inserting Total Path to heap
+
+     Shortest path: C->F->G->D->E, cost = 21
+k: 10
+     Heap: 21,25,22,26
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 21,25,22,26
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 21,25,22,26
+     Spur Node: G
+     Root path: C->F->G, cost = 8
+         Removing edge: G->E
+         Removing edge: G->D
+     No Spur path found
+
+     Heap: 21,25,22,26
+     Spur Node: D
+     Root path: C->F->G->D, cost = 16
+         Removing edge: D->E
+     Spur path: B->E, cost = 3
+     Total path: C->F->G->D->B->E, cost = 23
+     Inserting Total Path to heap
+
+     Shortest path: C->F->A->D->E, cost = 21
+k: 11
+     Heap: 22,25,23,26
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 22,25,23,26
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 22,25,23,26
+     Spur Node: A
+     Root path: C->F->A, cost = 8
+         Removing edge: A->B
+         Removing edge: A->D
+     No Spur path found
+
+     Heap: 22,25,23,26
+     Spur Node: D
+     Root path: C->F->A->D, cost = 16
+         Removing edge: D->E
+     Spur path: B->E, cost = 3
+     Total path: C->F->A->D->B->E, cost = 23
+     Inserting Total Path to heap
+
+     Shortest path: C->A->D->E, cost = 22
+k: 12
+     Heap: 23,25,23,26
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 23,25,23,26
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+     Spur path: F->D->E, cost = 6
+     Total path: C->A->F->D->E, cost = 23
+     Inserting Total Path to heap
+
+     Heap: 23,25,23,26,23
+     Spur Node: D
+     Root path: C->A->D, cost = 17
+         Removing edge: D->E
+     Spur path: B->E, cost = 3
+     Total path: C->A->D->B->E, cost = 24
+     Inserting Total Path to heap
+
+     Shortest path: C->F->A->D->B->E, cost = 23
+k: 13
+     Heap: 23,25,24,26,23
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 23,25,24,26,23
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 23,25,24,26,23
+     Spur Node: A
+     Root path: C->F->A, cost = 8
+         Removing edge: A->B
+         Removing edge: A->D
+     No Spur path found
+
+     Heap: 23,25,24,26,23
+     Spur Node: D
+     Root path: C->F->A->D, cost = 16
+         Removing edge: D->E
+         Removing edge: D->B
+     Spur path: G->E, cost = 4
+     Total path: C->F->A->D->G->E, cost = 28
+     Inserting Total Path to heap
+
+     Heap: 23,25,24,26,23,28
+     Spur Node: B
+     Root path: C->F->A->D->B, cost = 20
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->F->G->D->B->E, cost = 23
+k: 14
+     Heap: 24,25,28,26,23
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 24,25,28,26,23
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 24,25,28,26,23
+     Spur Node: G
+     Root path: C->F->G, cost = 8
+         Removing edge: G->E
+         Removing edge: G->D
+     No Spur path found
+
+     Heap: 24,25,28,26,23
+     Spur Node: D
+     Root path: C->F->G->D, cost = 16
+         Removing edge: D->E
+         Removing edge: D->B
+     Spur path: A->B->E, cost = 4
+     Total path: C->F->G->D->A->B->E, cost = 28
+     Inserting Total Path to heap
+
+     Heap: 24,25,28,26,23,28
+     Spur Node: B
+     Root path: C->F->G->D->B, cost = 20
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->A->D->B->E, cost = 24
+k: 15
+     Heap: 25,23,28,26,28
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 25,23,28,26,28
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+     Spur path: F->D->E, cost = 6
+     Total path: C->A->F->D->E, cost = 23
+     Path already exists
+
+     Heap: 25,23,28,26,28
+     Spur Node: D
+     Root path: C->A->D, cost = 17
+         Removing edge: D->E
+         Removing edge: D->B
+     Spur path: G->E, cost = 4
+     Total path: C->A->D->G->E, cost = 29
+     Inserting Total Path to heap
+
+     Heap: 25,23,28,26,28,29
+     Spur Node: B
+     Root path: C->A->D->B, cost = 21
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->F->A->B->D->G->E, cost = 25
+k: 16
+     Heap: 23,26,28,29,28
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 23,26,28,29,28
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 23,26,28,29,28
+     Spur Node: A
+     Root path: C->F->A, cost = 8
+         Removing edge: A->B
+         Removing edge: A->D
+     No Spur path found
+
+     Heap: 23,26,28,29,28
+     Spur Node: B
+     Root path: C->F->A->B, cost = 9
+         Removing edge: B->E
+         Removing edge: B->D
+     No Spur path found
+
+     Heap: 23,26,28,29,28
+     Spur Node: D
+     Root path: C->F->A->B->D, cost = 13
+         Removing edge: D->E
+         Removing edge: D->G
+     No Spur path found
+
+     Heap: 23,26,28,29,28
+     Spur Node: G
+     Root path: C->F->A->B->D->G, cost = 21
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->F->D->E, cost = 23
+k: 17
+     Heap: 26,28,28,29
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 26,28,28,29
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 26,28,28,29
+     Spur Node: F
+     Root path: C->A->F, cost = 17
+         Removing edge: F->D
+     Spur path: G->E, cost = 4
+     Total path: C->A->F->G->E, cost = 29
+     Inserting Total Path to heap
+
+     Heap: 26,28,28,29,29
+     Spur Node: D
+     Root path: C->A->F->D, cost = 18
+         Removing edge: D->E
+     Spur path: B->E, cost = 3
+     Total path: C->A->F->D->B->E, cost = 25
+     Inserting Total Path to heap
+
+     Shortest path: C->A->F->D->B->E, cost = 25
+k: 18
+     Heap: 26,28,28,29,29
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 26,28,28,29,29
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 26,28,28,29,29
+     Spur Node: F
+     Root path: C->A->F, cost = 17
+         Removing edge: F->D
+     Spur path: G->E, cost = 4
+     Total path: C->A->F->G->E, cost = 29
+     Path already exists
+
+     Heap: 26,28,28,29,29
+     Spur Node: D
+     Root path: C->A->F->D, cost = 18
+         Removing edge: D->E
+         Removing edge: D->B
+     Spur path: G->E, cost = 4
+     Total path: C->A->F->D->G->E, cost = 30
+     Inserting Total Path to heap
+
+     Heap: 26,28,28,29,29,30
+     Spur Node: B
+     Root path: C->A->F->D->B, cost = 22
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->A->B->D->G->E, cost = 26
+k: 19
+     Heap: 28,29,28,30,29
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 28,29,28,30,29
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 28,29,28,30,29
+     Spur Node: B
+     Root path: C->A->B, cost = 10
+         Removing edge: B->E
+         Removing edge: B->D
+     No Spur path found
+
+     Heap: 28,29,28,30,29
+     Spur Node: D
+     Root path: C->A->B->D, cost = 14
+         Removing edge: D->E
+         Removing edge: D->G
+     Spur path: F->G->E, cost = 12
+     Total path: C->A->B->D->F->G->E, cost = 27
+     Inserting Total Path to heap
+
+     Heap: 27,28,29,30,29,28
+     Spur Node: G
+     Root path: C->A->B->D->G, cost = 22
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->B->D->F->G->E, cost = 27
+k: 20
+     Heap: 28,28,29,30,29
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 28,28,29,30,29
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 28,28,29,30,29
+     Spur Node: B
+     Root path: C->A->B, cost = 10
+         Removing edge: B->E
+         Removing edge: B->D
+     No Spur path found
+
+     Heap: 28,28,29,30,29
+     Spur Node: D
+     Root path: C->A->B->D, cost = 14
+         Removing edge: D->E
+         Removing edge: D->G
+         Removing edge: D->F
+     No Spur path found
+
+     Heap: 28,28,29,30,29
+     Spur Node: F
+     Root path: C->A->B->D->F, cost = 15
+         Removing edge: F->G
+     No Spur path found
+
+     Heap: 28,28,29,30,29
+     Spur Node: G
+     Root path: C->A->B->D->F->G, cost = 23
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->F->G->D->A->B->E, cost = 28
+k: 21
+     Heap: 28,29,29,30
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 28,29,29,30
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 28,29,29,30
+     Spur Node: G
+     Root path: C->F->G, cost = 8
+         Removing edge: G->E
+         Removing edge: G->D
+     No Spur path found
+
+     Heap: 28,29,29,30
+     Spur Node: D
+     Root path: C->F->G->D, cost = 16
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->A
+     No Spur path found
+
+     Heap: 28,29,29,30
+     Spur Node: A
+     Root path: C->F->G->D->A, cost = 24
+         Removing edge: A->B
+     No Spur path found
+
+     Heap: 28,29,29,30
+     Spur Node: B
+     Root path: C->F->G->D->A->B, cost = 25
+         Removing edge: B->E
+     No Spur path found
+
+     Shortest path: C->F->A->D->G->E, cost = 28
+k: 22
+     Heap: 29,30,29
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 29,30,29
+     Spur Node: F
+     Root path: C->F, cost = 0
+         Removing edge: F->D
+         Removing edge: F->G
+         Removing edge: F->A
+     No Spur path found
+
+     Heap: 29,30,29
+     Spur Node: A
+     Root path: C->F->A, cost = 8
+         Removing edge: A->B
+         Removing edge: A->D
+     No Spur path found
+
+     Heap: 29,30,29
+     Spur Node: D
+     Root path: C->F->A->D, cost = 16
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->G
+     No Spur path found
+
+     Heap: 29,30,29
+     Spur Node: G
+     Root path: C->F->A->D->G, cost = 24
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->F->G->E, cost = 29
+k: 23
+     Heap: 29,30
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 29,30
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 29,30
+     Spur Node: F
+     Root path: C->A->F, cost = 17
+         Removing edge: F->D
+         Removing edge: F->G
+     No Spur path found
+
+     Heap: 29,30
+     Spur Node: G
+     Root path: C->A->F->G, cost = 25
+         Removing edge: G->E
+     Spur path: D->E, cost = 5
+     Total path: C->A->F->G->D->E, cost = 38
+     Inserting Total Path to heap
+
+     Shortest path: C->A->D->G->E, cost = 29
+k: 24
+     Heap: 30,38
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 30,38
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 30,38
+     Spur Node: D
+     Root path: C->A->D, cost = 17
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->G
+     Spur path: F->G->E, cost = 12
+     Total path: C->A->D->F->G->E, cost = 30
+     Inserting Total Path to heap
+
+     Heap: 30,30,38
+     Spur Node: G
+     Root path: C->A->D->G, cost = 25
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->F->D->G->E, cost = 30
+k: 25
+     Heap: 30,38
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 30,38
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 30,38
+     Spur Node: F
+     Root path: C->A->F, cost = 17
+         Removing edge: F->D
+         Removing edge: F->G
+     No Spur path found
+
+     Heap: 30,38
+     Spur Node: D
+     Root path: C->A->F->D, cost = 18
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->G
+     No Spur path found
+
+     Heap: 30,38
+     Spur Node: G
+     Root path: C->A->F->D->G, cost = 26
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->D->F->G->E, cost = 30
+k: 26
+     Heap: 38
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 38
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 38
+     Spur Node: D
+     Root path: C->A->D, cost = 17
+         Removing edge: D->E
+         Removing edge: D->B
+         Removing edge: D->G
+         Removing edge: D->F
+     No Spur path found
+
+     Heap: 38
+     Spur Node: F
+     Root path: C->A->D->F, cost = 18
+         Removing edge: F->G
+     No Spur path found
+
+     Heap: 38
+     Spur Node: G
+     Root path: C->A->D->F->G, cost = 26
+         Removing edge: G->E
+     No Spur path found
+
+     Shortest path: C->A->F->G->D->E, cost = 38
+k: 27
+     Heap: 
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 
+     Spur Node: F
+     Root path: C->A->F, cost = 17
+         Removing edge: F->D
+         Removing edge: F->G
+     No Spur path found
+
+     Heap: 
+     Spur Node: G
+     Root path: C->A->F->G, cost = 25
+         Removing edge: G->E
+         Removing edge: G->D
+     No Spur path found
+
+     Heap: 
+     Spur Node: D
+     Root path: C->A->F->G->D, cost = 33
+         Removing edge: D->E
+     Spur path: B->E, cost = 3
+     Total path: C->A->F->G->D->B->E, cost = 40
+     Inserting Total Path to heap
+
+     Shortest path: C->A->F->G->D->B->E, cost = 40
+k: 28
+     Heap: 
+     Spur Node: C
+     Root path: C, cost = 0
+         Removing edge: C->F
+         Removing edge: C->A
+     No Spur path found
+
+     Heap: 
+     Spur Node: A
+     Root path: C->A, cost = 9
+         Removing edge: A->B
+         Removing edge: A->D
+         Removing edge: A->F
+     No Spur path found
+
+     Heap: 
+     Spur Node: F
+     Root path: C->A->F, cost = 17
+         Removing edge: F->D
+         Removing edge: F->G
+     No Spur path found
+
+     Heap: 
+     Spur Node: G
+     Root path: C->A->F->G, cost = 25
+         Removing edge: G->E
+         Removing edge: G->D
+     No Spur path found
+
+     Heap: 
+     Spur Node: D
+     Root path: C->A->F->G->D, cost = 33
+         Removing edge: D->E
+         Removing edge: D->B
+     No Spur path found
+
+     Heap: 
+     Spur Node: B
+     Root path: C->A->F->G->D->B, cost = 37
+         Removing edge: B->E
+     No Spur path found
+
+
+1. C->F->D->E
+Cost = 6
+
+2. C->F->D->B->E
+Cost = 8
+
+3. C->F->G->E
+Cost = 12
+
+4. C->F->A->B->E
+Cost = 12
+
+5. C->F->D->G->E
+Cost = 13
+
+6. C->A->B->E
+Cost = 13
+
+7. C->F->D->A->B->E
+Cost = 13
+
+8. C->F->A->B->D->E
+Cost = 18
+
+9. C->A->B->D->E
+Cost = 19
+
+10. C->F->G->D->E
+Cost = 21
+
+11. C->F->A->D->E
+Cost = 21
+
+12. C->A->D->E
+Cost = 22
+
+13. C->F->A->D->B->E
+Cost = 23
+
+14. C->F->G->D->B->E
+Cost = 23
+
+15. C->A->D->B->E
+Cost = 24
+
+16. C->F->A->B->D->G->E
+Cost = 25
+
+17. C->A->F->D->E
+Cost = 23
+
+18. C->A->F->D->B->E
+Cost = 25
+
+19. C->A->B->D->G->E
+Cost = 26
+
+20. C->A->B->D->F->G->E
+Cost = 27
+
+21. C->F->G->D->A->B->E
+Cost = 28
+
+22. C->F->A->D->G->E
+Cost = 28
+
+23. C->A->F->G->E
+Cost = 29
+
+24. C->A->D->G->E
+Cost = 29
+
+25. C->A->F->D->G->E
+Cost = 30
+
+26. C->A->D->F->G->E
+Cost = 30
+
+27. C->A->F->G->D->E
+Cost = 38
+
+28. C->A->F->G->D->B->E
+Cost = 40

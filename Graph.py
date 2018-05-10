@@ -28,7 +28,6 @@ class GraphVertex:
         str_list = [str(k) + "(" + str(v['weight']) + ")" for k,v in self.adjList.items()]
         return self.key + "|" + "-".join(str_list)
 
-
 class Graph:
     """A Class for an undirected simple graph"""
 
@@ -193,6 +192,8 @@ def yenKSP(graph, source, sink, K):
 
             #spur node is retrieved from the previous k-shortest path, k - 1
             spurNode = A[k-1][i]
+
+            print("     Heap: " + ','.join([str(calcPathCost(path)) for path in B.heap]))
             print("     Spur Node: " + spurNode.key)
 
             # The sequence of nodes from the source to the spur node of the previous k-shortest path
@@ -202,8 +203,9 @@ def yenKSP(graph, source, sink, K):
             for path in A:
                 if rootPath == path[0:i+1]:
                     # Remove the links that are part of the previous shortest paths which share the same root path.
-                    path[i].adjList[path[i+1].key]['availability'] = False
-                    print("         Removing edge: " + path[i].key + "->" + path[i].adjList[path[i+1].key]['k'].key)
+                    if path[i].adjList[path[i+1].key]['availability'] == True:
+                        path[i].adjList[path[i+1].key]['availability'] = False
+                        print("         Removing edge: " + path[i].key + "->" + path[i].adjList[path[i+1].key]['k'].key)
 
             for rootPathNode in rootPath: #remove each node in the rootpath excep spur node
                 if rootPathNode != spurNode:
@@ -216,7 +218,14 @@ def yenKSP(graph, source, sink, K):
                 print("     Spur path: " + '->'.join([node.key for node in spurPath]) + ", cost = " + str(calcPathCost(spurPath)))
                 totalPath = rootPath + spurPath
                 print("     Total path: " + '->'.join([node.key for node in totalPath]) + ", cost = " + str(calcPathCost(totalPath)))
-                B.insert(totalPath)
+                if not totalPath in B.heap:
+                    print("     Inserting Total Path to heap")
+                    B.insert(totalPath)
+                    print("     Heap: " + ','.join([str(calcPathCost(path)) for path in B.heap]))
+                else:
+                    print("     Path already exists")
+            else:
+                print("     No Spur path found")
 
             print()
             #Resstore edge and nodes that were remove from the graph
@@ -231,9 +240,15 @@ def yenKSP(graph, source, sink, K):
         # or there are no spur paths at all - such as when both the source and sink vertices
         # line alone a "dead end"
             break
+
+        if len(B.heap) >= K - k + 1:
+            print("     Heap has more than required k path: " + str(len(B.heap)))
+            for _ in range(0, K - k):
+                A.append(B.extract())
+            break
+
         A.append(B.extract())
         print("     Shortest path: " + '->'.join([node.key for node in A[k]]) + ", cost = " + str(calcPathCost(A[k])))
-        B.clear()
 
     return A
 
@@ -245,11 +260,11 @@ def main():
     source = graph.vertexList['C']
     sink = graph.vertexList['E']
 
-    A = yenKSP(graph, source, sink, 100) #Find 3 shortest path from C to E
-    for path in A:
+    A = yenKSP(graph, source, sink,40) #Find 3 shortest path from C to E
+    for i, path in enumerate(A):
         cost = calcPathCost(path)
         if path != None:
-            print("\n" + '->'.join([str(vertex.key) for vertex in path]))
+            print("\n" + str(i+1) + ". " + '->'.join([str(vertex.key) for vertex in path]))
         print("Cost = " + str(cost))
 
 

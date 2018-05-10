@@ -68,10 +68,15 @@ class Heap:
     def _trickleUp(self, index):
 
         if (index >= 0) and (index < len(self.heap)):
-            while (index > 0 and (((self.heap_type == "min") and self.callback(self.heap[int(index/2)], self.heap[index])) or
-                                  ((self.heap_type == "max") and self.callback(self.heap[index], self.heap[int(index/2)])))):
-                self.heap[int(index/2)],self.heap[index] = self.heap[index],self.heap[int(index/2)]
-                index = int(index/2)
+            if self.heap_type == "min":
+                while index > 0 and self.callback(self.heap[int((index - 1)/2)],self.heap[index]):
+                    self.heap[int((index - 1)/2)],self.heap[index] = self.heap[index],self.heap[int((index - 1)/2)]
+                    index = int((index - 1)/2)
+
+            else:
+                while index > 0 and self.callback(self.heap[int((index - 1)/2)],self.heap[int((index - 1)/2)]):
+                    self.heap[int((index - 1)/2)],self.heap[index] = self.heap[index],self.heap[int((index - 1)/2)]
+                    index = int((index - 1)/2)
 
     def __str__(self):
         str = [i.__str__() for i in self.heap]
@@ -79,15 +84,9 @@ class Heap:
 
 def main():
     #testing
-    intArr = [4,1,3,2,9,16,10,14,8,7]
-    heap = Heap("max", lambda x: x)
-    for i in intArr:
-        heap.insert(i)
-
-    print(heap)
-    print(heap.extract(2))
-    print(heap)
-    print(heap.extract())
+    heap = Heap("min", lambda x,y: x>y)
+    heap.heap = [23,25,23,26]
+    heap.insert(23)
     print(heap)
 
 
