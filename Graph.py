@@ -96,17 +96,21 @@ def approxMVC(graph):
         vertex.current_degree = len(vertex.adjList) - 1
         vertexHeap.insert(vertex)
 
+    print("Heap: " + ','.join(["("+ str(i.key) + "," + str(i.current_degree) + ")" for i in vertexHeap.heap]))
     while not vertexHeap.isEmpty() and vertexHeap.heap[0].current_degree > 0:
         vertex = vertexHeap.extract()
         vistedList.append(vertex)
         vertexCover.append(vertex)
 
-        print("Visiting vertex: " + vertex.__str__() + ", Visisted = {" + ",".join([vertex.key for vertex in vistedList]) + "}")
+
+
+        print("Visiting vertex: " + vertex.key + ", Visisted = {" + ",".join([vertex.key for vertex in vistedList]) + "}")
         for k, adjVertex in vertex.adjList.items():
             if not (adjVertex['k'] in vistedList) and adjVertex['k'].current_degree != 0: #If it hasn't been
                 adjVertex['k'].current_degree = adjVertex['k'].current_degree - 1
                 print("     Updating degree of vertex " + k + " to " + str(adjVertex['k'].current_degree))
                 vertexHeap.update(vertexHeap.heap.index(adjVertex['k']))
+        print("Heap: " + ','.join(["("+ str(i.key) + "," + str(i.current_degree) + ")" for i in vertexHeap.heap]))
         print()
 
     print("VERTEX COVER = " + ",".join([vertex.key for vertex in vertexCover]))
@@ -250,20 +254,47 @@ def yenKSP(graph, source, sink, K):
 
     return A
 
-def main():
-    #Using this main submodule as a test harness, bad idea?
-    #graph = readGraph1(sys.argv[1])
-    #print("Performing Minimum Vertex Cover Approximation...")
-    graph = GraphReader.readGraph2(sys.argv[1])
-    source = graph.vertexList['C']
-    sink = graph.vertexList['E']
-
+def performYen(graph, source, sink):
     A = yenKSP(graph, source, sink,4) #Find 3 shortest path from C to E
     for i, path in enumerate(A):
         cost = calcPathCost(path)
         if path != None:
             print("\n" + str(i+1) + ". " + '->'.join([str(vertex.key) for vertex in path]))
         print("Cost = " + str(cost))
+
+def main():
+    #Using this main submodule as a test harness, bad idea?
+    #graph = GraphReader.readGraph1(sys.argv[1])
+
+    #print("Performing Minimum Vertex Cover Approximation...")
+    graph = GraphReader.readGraph2("GraphCSV/Graph_matrix.txt")
+    studentID = [int(x) for x in str(sys.argv[1])]
+    graph.vertexList['A'].adjList['B']['weight'] = studentID[0]
+    graph.vertexList['B'].adjList['A']['weight'] = studentID[0]
+    graph.vertexList['A'].adjList['D']['weight'] = studentID[1]
+    graph.vertexList['D'].adjList['A']['weight'] = studentID[1]
+    graph.vertexList['A'].adjList['F']['weight'] = studentID[2]
+    graph.vertexList['F'].adjList['A']['weight'] = studentID[2]
+    graph.vertexList['B'].adjList['D']['weight'] = studentID[3]
+    graph.vertexList['D'].adjList['B']['weight'] = studentID[3]
+    graph.vertexList['B'].adjList['E']['weight'] = studentID[4]
+    graph.vertexList['C'].adjList['A']['weight'] = studentID[5]
+    graph.vertexList['C'].adjList['F']['weight'] = studentID[6]
+    graph.vertexList['D'].adjList['E']['weight'] = studentID[7]
+    graph.vertexList['D'].adjList['F']['weight'] = studentID[0]
+    graph.vertexList['F'].adjList['D']['weight'] = studentID[0]
+    graph.vertexList['D'].adjList['G']['weight'] = studentID[1]
+    graph.vertexList['G'].adjList['D']['weight'] = studentID[1]
+    graph.vertexList['F'].adjList['G']['weight'] = studentID[2]
+    graph.vertexList['G'].adjList['F']['weight'] = studentID[2]
+    graph.vertexList['G'].adjList['E']['weight'] = studentID[3]
+
+    source = graph.vertexList['C']
+    sink = graph.vertexList['E']
+    performYen(graph,source,sink)
+    #approxMVC(graph)
+
+
 
 
 if __name__ == "__main__":

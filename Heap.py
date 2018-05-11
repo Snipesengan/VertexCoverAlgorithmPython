@@ -74,7 +74,7 @@ class Heap:
                     index = int((index - 1)/2)
 
             else:
-                while index > 0 and self.callback(self.heap[int((index - 1)/2)],self.heap[int((index - 1)/2)]):
+                while index > 0 and self.callback(self.heap[index],self.heap[int((index - 1)/2)]):
                     self.heap[int((index - 1)/2)],self.heap[index] = self.heap[index],self.heap[int((index - 1)/2)]
                     index = int((index - 1)/2)
 
